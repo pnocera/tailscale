@@ -493,6 +493,7 @@ func (n *testNode) StartDaemon(t testing.TB) *Daemon {
 		"TS_LOG_TARGET="+n.env.LogCatcherServer.URL,
 		"HTTP_PROXY="+n.env.TrafficTrapServer.URL,
 		"HTTPS_PROXY="+n.env.TrafficTrapServer.URL,
+		"TS_NETNS_BIND_IFC=lo",
 	)
 	cmd.Stderr = &nodeOutputParser{n: n}
 	if *verboseTailscaled {

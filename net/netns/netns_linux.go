@@ -98,6 +98,10 @@ func bindToDevice(fd uintptr) error {
 		// a default route anyway, it doesn't matter.
 		ifc = "lo"
 	}
+	bind_specific_ifc := os.Getenv("TS_NETNS_BIND_IFC")
+	if bind_specific_ifc != "" {
+		ifc = bind_specific_ifc
+	}
 	if err := unix.SetsockoptString(int(fd), unix.SOL_SOCKET, unix.SO_BINDTODEVICE, ifc); err != nil {
 		return fmt.Errorf("setting SO_BINDTODEVICE: %w", err)
 	}
