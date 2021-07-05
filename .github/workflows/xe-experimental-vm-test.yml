@@ -1,9 +1,9 @@
 name: "integration-vms"
 
 on:
-  # # NOTE(Xe): uncomment this region when testing the test
-  # pull_request:
-  #   branches: [ main ]
+  # NOTE(Xe): uncomment this region when testing the test
+  pull_request:
+    branches: [ main ]
   push:
     branches: [ main ]
   release:

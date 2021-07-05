@@ -192,7 +192,7 @@ func makeNixOSImage(t *testing.T, d Distro, cdir string, bins *integration.Binar
 		cmd.Stdout = logger.FuncWriter(t.Logf)
 		cmd.Stderr = logger.FuncWriter(t.Logf)
 	} else {
-		fname := fmt.Sprintf("nix-build-%s-%s", os.Getenv("GITHUB_RUN_NUMBER"), strings.Replace(t.Name(), "/", "-", -1))
+		fname := fmt.Sprintf("/var/lib/ghrunner/nix-build-%s-%s", os.Getenv("GITHUB_RUN_NUMBER"), strings.Replace(t.Name(), "/", "-", -1))
 		t.Logf("writing nix logs to %s", fname)
 		fout, err := os.Create(fname)
 		if err != nil {
