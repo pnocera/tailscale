@@ -392,8 +392,10 @@ func (u *file) Read(buf []byte) (n int, err error) { // read a packet from the d
 	}
 	nidx := C.wait_completion(u.readRing)
 	n, idx, err := unpackNIdx(nidx)
-	if err != nil || n < 4 {
+	if err != nil {
 		return 0, fmt.Errorf("Read: %v", err)
+	} else if n < 4 {
+		return 0, fmt.Errorf("Read invalid n: %v", n)
 	}
 	r := u.readReqs[idx]
 	rbuf := sliceOf(r.buf, n)
