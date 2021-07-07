@@ -201,6 +201,15 @@ static int set_deadline(struct io_uring *ring, int64_t sec, long long ns) {
   return 0;
 }
 
+// index of io uring capability
+static int has_capability(int i) {
+    int supported;
+    struct io_uring_probe *probe = io_uring_get_probe();
+    supported = io_uring_opcode_supported(probe, i);
+    free(probe);
+    return supported;
+}
+
 #endif
 
 static int has_io_uring(void) {
