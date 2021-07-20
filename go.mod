@@ -7,6 +7,9 @@ require (
 	github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be // indirect
 	github.com/aws/aws-sdk-go v1.38.52
 	github.com/coreos/go-iptables v0.6.0
+	github.com/dapr/cli v0.9.0
+	github.com/dapr/dapr v1.0.0-rc.1.0.20201202053523-152c218d89da
+	github.com/dapr/dashboard v0.6.0
 	github.com/frankban/quicktest v1.13.0
 	github.com/gliderlabs/ssh v0.3.2
 	github.com/go-multierror/multierror v1.0.2
@@ -16,6 +19,9 @@ require (
 	github.com/google/goexpect v0.0.0-20210430020637-ab937bf7fd6f
 	github.com/google/uuid v1.1.2
 	github.com/goreleaser/nfpm v1.10.3
+	github.com/gorilla/mux v1.7.3
+	github.com/gorilla/websocket v1.4.2
+	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2 // indirect
 	github.com/jsimonetti/rtnetlink v0.0.0-20210525051524-4cc836578190
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/klauspost/compress v1.12.2
@@ -26,6 +32,7 @@ require (
 	github.com/pborman/getopt v1.1.0
 	github.com/peterbourgon/ff/v2 v2.0.0
 	github.com/pkg/sftp v1.13.0
+	github.com/spf13/viper v1.7.1
 	github.com/tailscale/certstore v0.0.0-20210528134328-066c94b793d3
 	github.com/tailscale/depaware v0.0.0-20201214215404-77d1e9757027
 	github.com/tcnksm/go-httpstat v0.2.0
@@ -45,5 +52,11 @@ require (
 	inet.af/netstack v0.0.0-20210622165351-29b14ebc044e
 	inet.af/peercred v0.0.0-20210318190834-4259e17bb763
 	inet.af/wf v0.0.0-20210516214145-a5343001b756
+	k8s.io/api v0.17.8
+	k8s.io/apimachinery v0.17.8
+	k8s.io/client-go v0.17.2
 	rsc.io/goversion v1.2.0
+	sigs.k8s.io/yaml v1.2.0
 )
+
+replace k8s.io/client => github.com/kubernetes-client/go v0.0.0-20190928040339-c757968c4c36
