@@ -34,4 +34,4 @@ docker build \
   --build-arg VERSION_LONG=$VERSION_LONG \
   --build-arg VERSION_SHORT=$VERSION_SHORT \
   --build-arg VERSION_GIT_HASH=$VERSION_GIT_HASH \
-  -t gcr.io/gci-ptfd-host-dev/tailscale:v0.0.40 .
+  -t gcr.io/gci-ptfd-host-dev/tailscale:v0.0.43 .

@@ -71,5 +71,6 @@ COPY entryp /usr/local/bin/entryp
 RUN chmod +x /usr/local/bin/entryp
 COPY startup /usr/local/bin/startup
 RUN chmod +x /usr/local/bin/startup
+COPY web/ /web
 
 ENTRYPOINT [ "startup" ]

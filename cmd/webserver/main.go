@@ -1,4 +1,4 @@
-package cmd
+package main
 
 import (
 	"bufio"
@@ -11,6 +11,8 @@ import (
 	"strings"
 	"time"
 
+	"tailscale.com/config"
+
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 	components "tailscale.com/pkg/components"
@@ -21,6 +23,11 @@ import (
 	proxyapi "tailscale.com/pkg/proxyapi"
 	"tailscale.com/pkg/version"
 )
+
+func main() {
+	port := config.New().APIPort()
+	RunWebServer(port)
+}
 
 var epoch = time.Unix(0, 0).Format(time.RFC1123)
 
@@ -96,7 +103,7 @@ func RunWebServer(port int) {
 	api.HandleFunc("/proxy/{scope}/unproxy", unProxyHandler).Methods("GET")
 	api.HandleFunc("/proxy/{scope}/{id}", setProxyHandler).Methods("GET")
 
-	spa := spaHandler{staticPath: "web/dist", indexPath: "index.html"}
+	spa := spaHandler{staticPath: "/web", indexPath: "index.html"}
 	r.PathPrefix("/").Handler(spa)
 
 	srv := &http.Server{
