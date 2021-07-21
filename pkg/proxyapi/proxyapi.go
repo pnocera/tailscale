@@ -100,7 +100,7 @@ func (i *proxyapi) Proxy(scope string, appID string) bool {
 	err := i.patchDeployment(scope, appID, fmt.Sprintf("%s%s", appID, daprProxySuffix))
 	if err != nil {
 		log.Println(err)
-		return false
+		//return false
 	}
 
 	err = i.patchDeployment(scope, inst, appID)
